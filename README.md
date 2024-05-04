@@ -12,9 +12,13 @@ The program needs to be run with the following packages installed (that are in r
 * pandas >=2.2.2, < 2.3
 ### How to run the program
 1. Clone the repository
-```git clone https://github.com/KikyoBRV/WorldData.git```
+```
+git clone https://github.com/KikyoBRV/WorldData.git
+```
 2. Run main.py
-```python main.py```
+```
+python main.py
+```
 
 ## Functions currently available
 * User can create "Bar Chart" in statistic page. 
