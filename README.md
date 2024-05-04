@@ -21,5 +21,5 @@ python main.py
 ```
 
 ## Functions currently available
-* User can create "Bar Chart" in statistic page. 
+* User can create "Bar Chart" in "Statistic Data" page. 
 * Other feature will be updated as soon as possible
