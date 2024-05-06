@@ -32,46 +32,45 @@ class BarChartView(tk.Frame):
         self.bottom_frame = tk.Frame(self)
         self.bottom_frame.pack()
 
+        self.canvas = None  # Initialize canvas attribute
+
         self.draw_bar_chart()
 
+        # Bind window closing event to exit_application method
+        master.protocol("WM_DELETE_WINDOW", self.exit_application)
+
     def get_numeric_attributes(self):
-        # Get a list of headers containing numerical data
         numeric_attributes = [col for col in self.data.columns if pd.api.types.is_numeric_dtype(self.data[col])]
         return numeric_attributes
 
     def draw_bar_chart(self):
-        # Get the selected attribute from the dropdown menu
         selected_attribute = self.attribute_var.get()
 
-        # If no attribute is selected, default to the first numeric attribute
         if not selected_attribute:
             selected_attribute = self.get_numeric_attributes()[0]
 
         x = self.data['Region']
         y = self.data[selected_attribute]
 
-        # Create a new figure
         fig, ax = plt.subplots(figsize=(10, 6))
-
-        # Plot the bar chart
         ax.bar(x, y, width=0.8)
-
-        # Set x and y axis labels
         ax.set_xlabel('Region')
-        ax.set_ylabel(selected_attribute.capitalize())  # Capitalize attribute name
-
-        # Set the title for the plot
+        ax.set_ylabel(selected_attribute.capitalize())
         ax.set_title(f'{selected_attribute.capitalize()} of each Region')
+        plt.xticks(rotation=8, ha='center', fontsize=8)
 
-        # Rotate x-axis labels by 0 degree
-        plt.xticks(rotation=0, ha='center', fontsize=8)
+        # Destroy existing canvas if it exists
+        if self.canvas:
+            self.canvas.get_tk_widget().destroy()
 
-        # Convert matplotlib figure to tkinter canvas
         self.canvas = FigureCanvasTkAgg(fig, master=self.bottom_frame)
         self.canvas.draw()
-        self.canvas.get_tk_widget().pack(side=tk.TOP, fill=tk.BOTH, expand=True)
+        self.canvas.get_tk_widget().pack(side=tk.TOP, fill=tk.BOTH,
+                                         expand=True)
 
     def update_bar_chart(self, *args):
-        # Redraw the bar chart when a new attribute is selected
-        self.canvas.get_tk_widget().destroy()  # Remove previous chart
         self.draw_bar_chart()
+
+    def exit_application(self):
+        # Method to exit the application
+        self.controller.exit_application()

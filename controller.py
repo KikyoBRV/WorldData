@@ -3,7 +3,6 @@ from explore_view import ExploreView
 from stats_view import StatsView
 from barchart_view import BarChartView
 
-
 class AppController:
     def __init__(self, master):
         self.master = master
@@ -33,3 +32,5 @@ class AppController:
         for widget in self.master.winfo_children():
             widget.destroy()
 
+    def exit_application(self):
+        self.master.quit()
