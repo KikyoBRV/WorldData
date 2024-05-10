@@ -2,6 +2,8 @@ from home_view import HomeView
 from explore_view import ExploreView
 from stats_view import StatsView
 from barchart_view import BarChartView
+import webbrowser
+
 
 class AppController:
     def __init__(self, master):
@@ -31,6 +33,9 @@ class AppController:
     def clear_window(self):
         for widget in self.master.winfo_children():
             widget.destroy()
+
+    def open_link(self, link):
+        webbrowser.open(link)
 
     def exit_application(self):
         self.master.quit()
