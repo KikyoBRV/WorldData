@@ -76,7 +76,7 @@ class StatsView(ctk.CTkFrame):
                                      fg_color="#4158D0",
                                      hover_color="#C850C0",
                                      border_color="#FFCC70",
-                                     command=self.controller.show_explore_page)
+                                     command=self.controller.show_piechart_page)
         self.button2.grid(row=1, column=1, padx=20, pady=20)
 
         # Load the image

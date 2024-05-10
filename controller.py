@@ -2,6 +2,7 @@ from home_view import HomeView
 from explore_view import ExploreView
 from stats_view import StatsView
 from barchart_view import BarChartView
+from piechart_view import PieChartView
 import webbrowser
 
 
@@ -29,6 +30,11 @@ class AppController:
         self.clear_window()
         self.barchart_view = BarChartView(self, master=self.master)
         self.barchart_view.pack()
+
+    def show_piechart_page(self):
+        self.clear_window()
+        self.piechart_view = PieChartView(self, master=self.master)
+        self.piechart_view.pack()
 
     def clear_window(self):
         for widget in self.master.winfo_children():

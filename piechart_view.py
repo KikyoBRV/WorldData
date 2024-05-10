@@ -4,8 +4,7 @@ from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 from model import DataModel
 import pandas as pd
 
-
-class BarChartView(ctk.CTkFrame):
+class PieChartView(ctk.CTkFrame):
     def __init__(self, controller, master=None):
         super().__init__(master)
         self.controller = controller
@@ -43,7 +42,7 @@ class BarChartView(ctk.CTkFrame):
                                             command=self.controller.show_explore_page)
         self.explore_button.pack(side=ctk.LEFT, padx=5)
 
-        self.page_name = "Bar Chart"
+        self.page_name = "Pie Chart"
 
         self.top_frame = ctk.CTkFrame(self)
         self.top_frame.pack(pady=20, padx=450, fill="both", expand=True)
@@ -58,7 +57,7 @@ class BarChartView(ctk.CTkFrame):
         self.attribute_label.pack()
 
         self.attribute_var = ctk.StringVar()
-        self.attribute_dropdown = ctk.CTkOptionMenu(self.middle_frame, variable=self.attribute_var, values=self.get_numeric_attributes(), command=self.update_bar_chart)
+        self.attribute_dropdown = ctk.CTkOptionMenu(self.middle_frame, variable=self.attribute_var, values=self.get_numeric_attributes(), command=self.update_pie_chart)
         self.attribute_dropdown.pack(pady=10)
 
         self.bottom_frame = ctk.CTkFrame(self)
@@ -66,7 +65,7 @@ class BarChartView(ctk.CTkFrame):
 
         self.canvas = None  # Initialize canvas attribute
 
-        self.draw_bar_chart()
+        self.draw_pie_chart()
 
         # Bind window closing event to exit_application method
         self.master.protocol("WM_DELETE_WINDOW", self.exit_application)
@@ -75,7 +74,7 @@ class BarChartView(ctk.CTkFrame):
         numeric_attributes = [col for col in self.data.columns if pd.api.types.is_numeric_dtype(self.data[col])]
         return numeric_attributes
 
-    def draw_bar_chart(self):
+    def draw_pie_chart(self):
         selected_attribute = self.attribute_var.get()
 
         if not selected_attribute:
@@ -95,19 +94,20 @@ class BarChartView(ctk.CTkFrame):
             else:
                 region_dict[self.data.loc[j, 'Region']] += 0
 
-        x = list(region_dict.keys())
-        y = list(region_dict.values())
-
-        # Generate random colors for each bar
-        num_bars = len(x)
-        colors = [plt.cm.viridis(i / num_bars) for i in range(num_bars)]
+        labels = list(region_dict.keys())
+        sizes = list(region_dict.values())
 
         fig, ax = plt.subplots(figsize=(11, 6))
-        ax.bar(x, y, width=0.8, color=colors)  # Assign colors to bars
-        ax.set_xlabel('Region')
-        ax.set_ylabel(selected_attribute.capitalize())
-        ax.set_title(f'{selected_attribute.capitalize()} of each Region')
-        plt.xticks(rotation=8, ha='center', fontsize=8)
+        wedges, texts, autotexts = ax.pie(sizes, labels=None,
+                                          autopct='%1.1f%%', startangle=140,
+                                          textprops=dict(color="w"))
+
+        # Set legend to display labels (region names)
+        ax.legend(wedges, labels, title="Regions", loc="upper left",
+                  bbox_to_anchor=(1, 0, 0.5, 1))
+
+        ax.set_title(
+            f'{selected_attribute.capitalize()} Distribution by Region')
 
         # Destroy existing canvas if it exists
         if self.canvas:
@@ -121,8 +121,8 @@ class BarChartView(ctk.CTkFrame):
         # Close the figure explicitly to avoid the warning
         plt.close(fig)
 
-    def update_bar_chart(self, *args):
-        self.draw_bar_chart()
+    def update_pie_chart(self, *args):
+        self.draw_pie_chart()
 
     def exit_application(self):
         # Method to exit the application
