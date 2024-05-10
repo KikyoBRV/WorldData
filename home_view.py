@@ -48,14 +48,14 @@ class HomeView(ctk.CTkFrame):
         self.GitHub_image = Image.open(GitHubImage_path)
 
         # Convert the image to PhotoImage format
-        self.photo = ImageTk.PhotoImage(self.Description_Image)
+        self.Description_photo = ImageTk.PhotoImage(self.Description_Image)
 
         # Create a Canvas widget to display the image
         self.canvas = ctk.CTkCanvas(self.middle_frame, width=self.Description_Image.width, height=self.Description_Image.height)
         self.canvas.pack()
 
         # Display the image on the Canvas
-        self.canvas.create_image(0, 0, anchor=ctk.NW, image=self.photo)
+        self.canvas.create_image(0, 0, anchor=ctk.NW, image=self.Description_photo)
 
         self.info_frame = ctk.CTkFrame(self)
         self.info_frame.pack(pady=10, padx=20)

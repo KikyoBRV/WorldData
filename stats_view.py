@@ -38,20 +38,56 @@ class StatsView(ctk.CTkFrame):
         self.bottom_frame = ctk.CTkFrame(self)
         self.bottom_frame.pack(pady=20, padx=60, fill="both", expand=True)
 
-        self.button1 = ctk.CTkButton(self.bottom_frame, text="Bar Chart", command=self.controller.show_barchart_page, font=("Arial", 12))
+        self.button1 = ctk.CTkButton(self.bottom_frame, text="Bar Chart",
+                                     font=("Arial", 15),
+                                     corner_radius=20,
+                                     fg_color="#4158D0",
+                                     hover_color="#C850C0",
+                                     border_color="#FFCC70",
+                                     command=self.controller.show_barchart_page)
         self.button1.grid(row=0, column=0, padx=5, pady=5)
 
-        self.button2 = ctk.CTkButton(self.bottom_frame, text="Button 2", command=self.controller.show_explore_page, font=("Arial", 12))
+        self.button2 = ctk.CTkButton(self.bottom_frame, text="Button 2",
+                                     font=("Arial", 15),
+                                     corner_radius=20,
+                                     fg_color="#4158D0",
+                                     hover_color="#C850C0",
+                                     border_color="#FFCC70",
+                                     command=self.controller.show_explore_page)
         self.button2.grid(row=0, column=1, padx=5, pady=5)
 
-        self.button3 = ctk.CTkButton(self.bottom_frame, text="Button 3", command=self.controller.show_stats_page, font=("Arial", 12))
+        self.button3 = ctk.CTkButton(self.bottom_frame, text="Button 3",
+                                     font=("Arial", 15),
+                                     corner_radius=20,
+                                     fg_color="#4158D0",
+                                     hover_color="#C850C0",
+                                     border_color="#FFCC70",
+                                     command=self.controller.show_stats_page)
         self.button3.grid(row=0, column=2, padx=5, pady=5)
 
-        self.button4 = ctk.CTkButton(self.bottom_frame, text="Button 4", command=self.controller.show_home_page, font=("Arial", 12))
+        self.button4 = ctk.CTkButton(self.bottom_frame, text="Button 4",
+                                     font=("Arial", 15),
+                                     corner_radius=20,
+                                     fg_color="#4158D0",
+                                     hover_color="#C850C0",
+                                     border_color="#FFCC70",
+                                     command=self.controller.show_home_page)
         self.button4.grid(row=1, column=0, padx=5, pady=5)
 
-        self.button5 = ctk.CTkButton(self.bottom_frame, text="Button 5", command=self.controller.show_explore_page, font=("Arial", 12))
+        self.button5 = ctk.CTkButton(self.bottom_frame, text="Button 5",
+                                     font=("Arial", 15),
+                                     corner_radius=20,
+                                     fg_color="#4158D0",
+                                     hover_color="#C850C0",
+                                     border_color="#FFCC70",
+                                     command=self.controller.show_explore_page)
         self.button5.grid(row=1, column=1, padx=5, pady=5)
 
-        self.button6 = ctk.CTkButton(self.bottom_frame, text="Button 6", command=self.controller.show_stats_page, font=("Arial", 12))
+        self.button6 = ctk.CTkButton(self.bottom_frame, text="Button 6",
+                                     font=("Arial", 15),
+                                     corner_radius=20,
+                                     fg_color="#4158D0",
+                                     hover_color="#C850C0",
+                                     border_color="#FFCC70",
+                                     command=self.controller.show_stats_page)
         self.button6.grid(row=1, column=2, padx=5, pady=5)
