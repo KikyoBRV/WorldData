@@ -8,7 +8,7 @@ class StatsView(ctk.CTkFrame):
 
         # Create a separate frame for page selection buttons
         self.button_frame = ctk.CTkFrame(self)
-        self.button_frame.pack(pady=10, padx=10, fill="x")
+        self.button_frame.pack(pady=10, padx=10, fill="both")
 
         self.home_button = ctk.CTkButton(self.button_frame, text="Home",
                                          font=("Arial", 20),
@@ -46,7 +46,7 @@ class StatsView(ctk.CTkFrame):
         self.Pic1_photo = ImageTk.PhotoImage(self.Pic1_Image)
         # Create a Canvas widget to display the image
         self.canvas = ctk.CTkCanvas(self.bottom_frame, width=400, height=250)
-        self.canvas.grid(row=0, column=0, padx=20, pady=20)
+        self.canvas.grid(row=0, column=0, padx=20, pady=20, sticky="nsew")
         # Display the image on the Canvas
         self.canvas.create_image(0, 0, anchor=ctk.NW, image=self.Pic1_photo)
 
@@ -57,7 +57,7 @@ class StatsView(ctk.CTkFrame):
                                      hover_color="#C850C0",
                                      border_color="#FFCC70",
                                      command=self.controller.show_barchart_page)
-        self.button1.grid(row=1, column=0, padx=5, pady=5)
+        self.button1.grid(row=1, column=0, padx=20, pady=20, sticky="nsew")
 
         # Load the image
         pic2_path = "Picture_Used/2.png"
@@ -66,7 +66,7 @@ class StatsView(ctk.CTkFrame):
         self.Pic2_photo = ImageTk.PhotoImage(self.Pic2_Image)
         # Create a Canvas widget to display the image
         self.canvas = ctk.CTkCanvas(self.bottom_frame, width=400, height=250)
-        self.canvas.grid(row=0, column=1, padx=20, pady=20)
+        self.canvas.grid(row=0, column=1, padx=20, pady=20, sticky="nsew")
         # Display the image on the Canvas
         self.canvas.create_image(0, 0, anchor=ctk.NW, image=self.Pic2_photo)
 
@@ -77,7 +77,7 @@ class StatsView(ctk.CTkFrame):
                                      hover_color="#C850C0",
                                      border_color="#FFCC70",
                                      command=self.controller.show_piechart_page)
-        self.button2.grid(row=1, column=1, padx=20, pady=20)
+        self.button2.grid(row=1, column=1, padx=20, pady=20, sticky="nsew")
 
         # Load the image
         pic3_path = "Picture_Used/3.png"
@@ -86,7 +86,7 @@ class StatsView(ctk.CTkFrame):
         self.Pic3_photo = ImageTk.PhotoImage(self.Pic3_Image)
         # Create a Canvas widget to display the image
         self.canvas = ctk.CTkCanvas(self.bottom_frame, width=400, height=250)
-        self.canvas.grid(row=0, column=2, padx=20, pady=20)
+        self.canvas.grid(row=0, column=2, padx=20, pady=20, sticky="nsew")
         # Display the image on the Canvas
         self.canvas.create_image(0, 0, anchor=ctk.NW, image=self.Pic3_photo)
 
@@ -97,7 +97,7 @@ class StatsView(ctk.CTkFrame):
                                      hover_color="#C850C0",
                                      border_color="#FFCC70",
                                      command=self.controller.show_stats_page)
-        self.button3.grid(row=1, column=2, padx=20, pady=20)
+        self.button3.grid(row=1, column=2, padx=20, pady=20, sticky="nsew")
 
         # Load the image
         pic4_path = "Picture_Used/4.png"
@@ -106,7 +106,7 @@ class StatsView(ctk.CTkFrame):
         self.Pic4_photo = ImageTk.PhotoImage(self.Pic4_Image)
         # Create a Canvas widget to display the image
         self.canvas = ctk.CTkCanvas(self.bottom_frame, width=400, height=250)
-        self.canvas.grid(row=2, column=0, padx=20, pady=20)
+        self.canvas.grid(row=2, column=0, padx=20, pady=20, sticky="nsew")
         # Display the image on the Canvas
         self.canvas.create_image(0, 0, anchor=ctk.NW, image=self.Pic4_photo)
 
@@ -117,7 +117,7 @@ class StatsView(ctk.CTkFrame):
                                      hover_color="#C850C0",
                                      border_color="#FFCC70",
                                      command=self.controller.show_home_page)
-        self.button4.grid(row=3, column=0, padx=20, pady=20)
+        self.button4.grid(row=3, column=0, padx=20, pady=20, sticky="nsew")
 
         # Load the image
         pic5_path = "Picture_Used/5.png"
@@ -126,7 +126,7 @@ class StatsView(ctk.CTkFrame):
         self.Pic5_photo = ImageTk.PhotoImage(self.Pic5_Image)
         # Create a Canvas widget to display the image
         self.canvas = ctk.CTkCanvas(self.bottom_frame, width=400, height=250)
-        self.canvas.grid(row=2, column=1, padx=20, pady=20)
+        self.canvas.grid(row=2, column=1, padx=20, pady=20, sticky="nsew")
         # Display the image on the Canvas
         self.canvas.create_image(0, 0, anchor=ctk.NW, image=self.Pic5_photo)
 
@@ -137,7 +137,7 @@ class StatsView(ctk.CTkFrame):
                                      hover_color="#C850C0",
                                      border_color="#FFCC70",
                                      command=self.controller.show_explore_page)
-        self.button5.grid(row=3, column=1, padx=20, pady=20)
+        self.button5.grid(row=3, column=1, padx=20, pady=20, sticky="nsew")
 
         # Load the image
         pic6_path = "Picture_Used/6.png"
@@ -146,7 +146,7 @@ class StatsView(ctk.CTkFrame):
         self.Pic6_photo = ImageTk.PhotoImage(self.Pic6_Image)
         # Create a Canvas widget to display the image
         self.canvas = ctk.CTkCanvas(self.bottom_frame, width=400, height=250)
-        self.canvas.grid(row=2, column=2, padx=20, pady=20)
+        self.canvas.grid(row=2, column=2, padx=20, pady=20, sticky="nsew")
         # Display the image on the Canvas
         self.canvas.create_image(0, 0, anchor=ctk.NW, image=self.Pic6_photo)
 
@@ -157,4 +157,4 @@ class StatsView(ctk.CTkFrame):
                                      hover_color="#C850C0",
                                      border_color="#FFCC70",
                                      command=self.controller.show_stats_page)
-        self.button6.grid(row=3, column=2, padx=20, pady=20)
+        self.button6.grid(row=3, column=2, padx=20, pady=20, sticky="nsew")
