@@ -4,6 +4,7 @@ from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 from model import DataModel
 import pandas as pd
 
+
 class BarChartView(tk.Frame):
     def __init__(self, controller, master=None):
         super().__init__(master)

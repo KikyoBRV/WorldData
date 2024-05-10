@@ -1,6 +1,5 @@
 import tkinter as tk
 
-
 class StatsView(tk.Frame):
     def __init__(self, controller, master=None):
         super().__init__(master)
@@ -8,17 +7,25 @@ class StatsView(tk.Frame):
 
         self.page_name = "Statistic Data"
 
-        self.top_frame = tk.Frame(self)
+        self.top_frame = tk.Frame(master)  # Use master instead of self
         self.top_frame.pack()
+
+        # Create a menu bar
+        self.menu_bar = tk.Menu(master)  # Use master instead of self
+
+        # Create Page menu
+        self.home_menu = tk.Menu(self.menu_bar, tearoff=0)
+        self.home_menu.add_command(label="Home", command=self.controller.show_home_page)
+        self.home_menu.add_command(label="Explore Country Data", command=self.controller.show_explore_page)
+
+        # Add Home menu to the menu bar
+        self.menu_bar.add_cascade(label="Page", menu=self.home_menu)
+
+        # Configure the master (root) window to use the menu bar
+        master.config(menu=self.menu_bar)
 
         self.label = tk.Label(self.top_frame, text=self.page_name)
         self.label.pack()
-
-        self.home_button = tk.Button(self.top_frame, text="Home", command=self.controller.show_home_page, font=("Arial", 12))
-        self.home_button.pack(side=tk.LEFT)
-
-        self.explore_button = tk.Button(self.top_frame, text="Explore Country Data", command=self.controller.show_explore_page, font=("Arial", 12))
-        self.explore_button.pack(side=tk.LEFT)
 
         self.bottom_frame = tk.Frame(self)
         self.bottom_frame.pack()
