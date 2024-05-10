@@ -80,8 +80,21 @@ class BarChartView(ctk.CTkFrame):
         if not selected_attribute:
             selected_attribute = self.get_numeric_attributes()[0]
 
-        x = self.data['Region']
-        y = self.data[selected_attribute]
+        # Sum values in the selected_attribute
+        region_list = []
+        for i in self.data['Region']:
+            if i not in region_list:
+                region_list.append(i)
+        region_dict = dict.fromkeys(region_list, 0)
+        for j in range(self.data.shape[0]):
+            if pd.notna(self.data.loc[j, selected_attribute]):
+                Jvalue = str(self.data.loc[j, selected_attribute]).replace(",", "")
+                region_dict[self.data.loc[j, 'Region']] += float(Jvalue)
+            else:
+                region_dict[self.data.loc[j, 'Region']] += 0
+
+        x = list(region_dict.keys())
+        y = list(region_dict.values())
 
         fig, ax = plt.subplots(figsize=(10, 6))
         ax.bar(x, y, width=0.8)
