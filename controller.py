@@ -1,8 +1,8 @@
-from home_view import HomeView
-from explore_view import ExploreView
-from stats_view import StatsView
-from barchart_view import BarChartView
-from piechart_view import PieChartView
+from view_home import HomeView
+from view_explore import ExploreView
+from view_stats import StatsView
+from view_barchart import BarChartView
+from view_piechart import PieChartView
 import webbrowser
 
 

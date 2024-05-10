@@ -1,4 +1,4 @@
-"Required packages"
-Python <= 3.11
-matplotlib >=3.8.4, < 4.0
-pandas >=2.2.2, < 2.3
+customtkinter==5.2.2
+matplotlib==3.8.4
+pandas==2.2.2
+pillow==10.3.0
