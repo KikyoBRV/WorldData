@@ -1,56 +1,56 @@
-import tkinter as tk
+import customtkinter as ctk
 import matplotlib.pyplot as plt
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 from model import DataModel
 import pandas as pd
 
-
-class BarChartView(tk.Frame):
+class BarChartView(ctk.CTkFrame):
     def __init__(self, controller, master=None):
         super().__init__(master)
         self.controller = controller
         self.model = DataModel()
         self.data = self.model.get_data()
 
-        # Create a menu bar
-        self.menu_bar = tk.Menu(master)  # Use master instead of self
+        # Create a separate frame for page selection buttons
+        self.button_frame = ctk.CTkFrame(self)
+        self.button_frame.pack(pady=10, padx=10, fill="x")
 
-        # Create Page menu
-        self.page_menu = tk.Menu(self.menu_bar, tearoff=0)
-        self.page_menu.add_command(label="Home", command=self.controller.show_home_page)
-        self.page_menu.add_command(label="Statistic Data", command=self.controller.show_stats_page)
-        self.page_menu.add_command(label="Explore Country Data", command=self.controller.show_explore_page)
+        self.home_button = ctk.CTkButton(self.button_frame, text="Home", command=self.controller.show_home_page)
+        self.home_button.pack(side=ctk.LEFT, padx=5)
 
-        # Add menus to the menu bar
-        self.menu_bar.add_cascade(label="Page Selection", menu=self.page_menu)
+        self.stats_button = ctk.CTkButton(self.button_frame, text="Statistic Data", command=self.controller.show_stats_page)
+        self.stats_button.pack(side=ctk.LEFT, padx=5)
 
-        # Configure the master (root) window to use the menu bar
-        master.config(menu=self.menu_bar)
+        self.explore_button = ctk.CTkButton(self.button_frame, text="Explore Country Data", command=self.controller.show_explore_page)
+        self.explore_button.pack(side=ctk.LEFT, padx=5)
 
-        self.page_name = "Bar Chart Page"
+        self.page_name = "Bar Chart"
 
-        self.top_frame = tk.Frame(self)
-        self.top_frame.pack()
+        self.top_frame = ctk.CTkFrame(self)
+        self.top_frame.pack(pady=20, padx=450, fill="both", expand=True)
 
-        self.label = tk.Label(self.top_frame, text=self.page_name, font=("Arial", 16))
-        self.label.pack()
+        self.label = ctk.CTkLabel(self.top_frame, text=self.page_name, font=("Arial", 50), text_color="#006C89")
+        self.label.pack(pady=0)
 
-        self.attribute_label = tk.Label(self.top_frame, text="Select Attribute:")
+        self.middle_frame = ctk.CTkFrame(self)
+        self.middle_frame.pack(pady=20, padx=400, fill="both", expand=True)
+
+        self.attribute_label = ctk.CTkLabel(self.middle_frame, text="Select Attribute:", font=("Arial", 22), text_color="#006C89")
         self.attribute_label.pack()
 
-        self.attribute_var = tk.StringVar()
-        self.attribute_dropdown = tk.OptionMenu(self.top_frame, self.attribute_var, *self.get_numeric_attributes(), command=self.update_bar_chart)
-        self.attribute_dropdown.pack()
+        self.attribute_var = ctk.StringVar()
+        self.attribute_dropdown = ctk.CTkOptionMenu(self.middle_frame, variable=self.attribute_var, values=self.get_numeric_attributes(), command=self.update_bar_chart)
+        self.attribute_dropdown.pack(pady=10)
 
-        self.bottom_frame = tk.Frame(self)
-        self.bottom_frame.pack()
+        self.bottom_frame = ctk.CTkFrame(self)
+        self.bottom_frame.pack(pady=20, padx=60, fill="both", expand=True)
 
         self.canvas = None  # Initialize canvas attribute
 
         self.draw_bar_chart()
 
         # Bind window closing event to exit_application method
-        master.protocol("WM_DELETE_WINDOW", self.exit_application)
+        self.master.protocol("WM_DELETE_WINDOW", self.exit_application)
 
     def get_numeric_attributes(self):
         numeric_attributes = [col for col in self.data.columns if pd.api.types.is_numeric_dtype(self.data[col])]
@@ -78,8 +78,7 @@ class BarChartView(tk.Frame):
 
         self.canvas = FigureCanvasTkAgg(fig, master=self.bottom_frame)
         self.canvas.draw()
-        self.canvas.get_tk_widget().pack(side=tk.TOP, fill=tk.BOTH,
-                                         expand=True)
+        self.canvas.get_tk_widget().pack(side=ctk.TOP, fill=ctk.BOTH, expand=True)
 
         # Close the figure explicitly to avoid the warning
         plt.close(fig)

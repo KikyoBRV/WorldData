@@ -1,8 +1,8 @@
-import tkinter as tk
+import customtkinter as ctk
 from controller import AppController
 
 if __name__ == "__main__":
-    root = tk.Tk()
+    root = ctk.CTk()
     root.title("WorldData")
     controller = AppController(root)
     root.mainloop()
