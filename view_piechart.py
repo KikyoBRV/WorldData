@@ -103,7 +103,7 @@ class PieChartView(ctk.CTkFrame):
                                           textprops=dict(color="w"))
 
         # Set legend to display labels (region names)
-        ax.legend(wedges, labels, title="Regions", loc="upper left",
+        ax.legend(wedges, labels, title="Regions", loc="upper right",
                   bbox_to_anchor=(1, 0, 0.5, 1))
 
         ax.set_title(

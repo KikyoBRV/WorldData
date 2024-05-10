@@ -103,7 +103,7 @@ class CorrelationView(ctk.CTkFrame):
         # Create legend with region names
         handles = [plt.Line2D([], [], marker="o", markersize=8, linestyle="",
                               color=self.get_region_color(region), label=region) for region in grouped.groups.keys()]
-        ax.legend(handles=handles, title='Region', title_fontsize='15', fontsize='12')
+        ax.legend(handles=handles, title='Region', title_fontsize='15', fontsize='12', loc="upper right")
 
         # Destroy existing canvas if it exists
         if self.canvas:
