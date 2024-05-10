@@ -10,6 +10,7 @@ class StatsView(ctk.CTkFrame):
         self.button_frame.pack(pady=10, padx=10, fill="x")
 
         self.home_button = ctk.CTkButton(self.button_frame, text="Home",
+                                         font=("Arial", 20),
                                          corner_radius=20,
                                          fg_color="#4158D0",
                                          hover_color="#C850C0",
@@ -18,6 +19,7 @@ class StatsView(ctk.CTkFrame):
         self.home_button.pack(side=ctk.LEFT, padx=5)
 
         self.explore_button = ctk.CTkButton(self.button_frame, text="Explore Country Data",
+                                            font=("Arial", 20),
                                             corner_radius=20,
                                             fg_color="#4158D0",
                                             hover_color="#C850C0",

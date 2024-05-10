@@ -12,6 +12,7 @@ class HomeView(ctk.CTkFrame):
         self.button_frame.pack(pady=10, padx=10, fill="x")
 
         self.stats_button = ctk.CTkButton(self.button_frame, text="Statistic Data",
+                                          font=("Arial", 20),
                                           corner_radius=20,
                                           fg_color="#4158D0",
                                           hover_color="#C850C0",
@@ -20,6 +21,7 @@ class HomeView(ctk.CTkFrame):
         self.stats_button.pack(side=ctk.LEFT, padx=5)
 
         self.explore_button = ctk.CTkButton(self.button_frame, text="Explore Country Data",
+                                            font=("Arial", 20),
                                             corner_radius=20,
                                             fg_color="#4158D0",
                                             hover_color="#C850C0",
@@ -62,6 +64,7 @@ class HomeView(ctk.CTkFrame):
         self.github_button = ctk.CTkButton(self.info_frame,
                                            text="Click here to visit our GitHub repository",
                                            image=ctk.CTkImage((self.GitHub_image)),
+                                           font=("Arial", 15),
                                            corner_radius=20,
                                            fg_color="#4158D0",
                                            hover_color="#C850C0",
