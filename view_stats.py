@@ -96,7 +96,7 @@ class StatsView(ctk.CTkFrame):
                                      fg_color="#4158D0",
                                      hover_color="#C850C0",
                                      border_color="#FFCC70",
-                                     command=self.controller.show_stats_page)
+                                     command=self.controller.show_correlation_page)
         self.button3.grid(row=1, column=2, padx=20, pady=20, sticky="nsew")
 
         # Load the image

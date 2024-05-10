@@ -3,6 +3,7 @@ from view_explore import ExploreView
 from view_stats import StatsView
 from view_barchart import BarChartView
 from view_piechart import PieChartView
+from view_correlation import CorrelationView
 import webbrowser
 
 
@@ -35,6 +36,12 @@ class AppController:
         self.clear_window()
         self.piechart_view = PieChartView(self, master=self.master)
         self.piechart_view.pack()
+
+    def show_correlation_page(self):
+        self.clear_window()
+        self.correlation_view = CorrelationView(self, master=self.master)
+        self.correlation_view.pack()
+
 
     def clear_window(self):
         for widget in self.master.winfo_children():
