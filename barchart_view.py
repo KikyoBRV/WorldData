@@ -81,6 +81,9 @@ class BarChartView(tk.Frame):
         self.canvas.get_tk_widget().pack(side=tk.TOP, fill=tk.BOTH,
                                          expand=True)
 
+        # Close the figure explicitly to avoid the warning
+        plt.close(fig)
+
     def update_bar_chart(self, *args):
         self.draw_bar_chart()
 
