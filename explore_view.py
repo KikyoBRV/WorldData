@@ -9,10 +9,20 @@ class ExploreView(ctk.CTkFrame):
         self.button_frame = ctk.CTkFrame(self)
         self.button_frame.pack(pady=10, padx=10, fill="x")
 
-        self.explore_button = ctk.CTkButton(self.button_frame, text="Home", command=self.controller.show_home_page)
+        self.explore_button = ctk.CTkButton(self.button_frame, text="Home",
+                                            corner_radius=20,
+                                            fg_color="#4158D0",
+                                            hover_color="#C850C0",
+                                            border_color="#FFCC70",
+                                            command=self.controller.show_home_page)
         self.explore_button.pack(side=ctk.LEFT, padx=5)
 
-        self.stats_button = ctk.CTkButton(self.button_frame, text="Statistic Data", command=self.controller.show_stats_page)
+        self.stats_button = ctk.CTkButton(self.button_frame, text="Statistic Data",
+                                          corner_radius=20,
+                                          fg_color="#4158D0",
+                                          hover_color="#C850C0",
+                                          border_color="#FFCC70",
+                                          command=self.controller.show_stats_page)
         self.stats_button.pack(side=ctk.LEFT, padx=5)
 
         self.page_name = "Explore Country's Data"
