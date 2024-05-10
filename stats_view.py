@@ -14,12 +14,12 @@ class StatsView(tk.Frame):
         self.menu_bar = tk.Menu(master)  # Use master instead of self
 
         # Create Page menu
-        self.home_menu = tk.Menu(self.menu_bar, tearoff=0)
-        self.home_menu.add_command(label="Home", command=self.controller.show_home_page)
-        self.home_menu.add_command(label="Explore Country Data", command=self.controller.show_explore_page)
+        self.page_menu = tk.Menu(self.menu_bar, tearoff=0)
+        self.page_menu.add_command(label="Home", command=self.controller.show_home_page)
+        self.page_menu.add_command(label="Explore Country Data", command=self.controller.show_explore_page)
 
-        # Add Home menu to the menu bar
-        self.menu_bar.add_cascade(label="Page", menu=self.home_menu)
+        # Add menus to the menu bar
+        self.menu_bar.add_cascade(label="Page Selection", menu=self.page_menu)
 
         # Configure the master (root) window to use the menu bar
         master.config(menu=self.menu_bar)

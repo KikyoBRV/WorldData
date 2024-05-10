@@ -13,13 +13,13 @@ class HomeView(tk.Frame):
         # Create a menu bar
         self.menu_bar = tk.Menu(master)  # Use master instead of self
 
-        # Create Explore menu
+        # Create Page menu
         self.page_menu = tk.Menu(self.menu_bar, tearoff=0)
-        self.page_menu.add_command(label="Explore Country Data", command=self.controller.show_explore_page)
         self.page_menu.add_command(label="Statistic Data", command=self.controller.show_stats_page)
+        self.page_menu.add_command(label="Explore Country Data", command=self.controller.show_explore_page)
 
         # Add menus to the menu bar
-        self.menu_bar.add_cascade(label="Page", menu=self.page_menu)
+        self.menu_bar.add_cascade(label="Page Selection", menu=self.page_menu)
 
         # Configure the master (root) window to use the menu bar
         master.config(menu=self.menu_bar)

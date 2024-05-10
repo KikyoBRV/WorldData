@@ -19,7 +19,7 @@ class ExploreView(tk.Frame):
         self.page_menu.add_command(label="Statistic Data", command=self.controller.show_stats_page)
 
         # Add menus to the menu bar
-        self.menu_bar.add_cascade(label="Page", menu=self.page_menu)
+        self.menu_bar.add_cascade(label="Page Selection", menu=self.page_menu)
 
         # Configure the master (root) window to use the menu bar
         master.config(menu=self.menu_bar)
