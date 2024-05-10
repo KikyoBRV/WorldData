@@ -5,6 +5,7 @@ from view_barchart import BarChartView
 from view_piechart import PieChartView
 from view_correlation import CorrelationView
 from view_distribution import DistributionView
+from view_networkgraph import NetworkGraphView
 import webbrowser
 
 
@@ -47,6 +48,11 @@ class AppController:
         self.clear_window()
         self.distribution_view = DistributionView(self, master=self.master)
         self.distribution_view.pack()
+
+    def show_network_page(self):
+        self.clear_window()
+        self.network_view = NetworkGraphView(self, master=self.master)
+        self.network_view.pack()
 
 
     def clear_window(self):
