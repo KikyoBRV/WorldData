@@ -19,7 +19,7 @@ class StatsView(ctk.CTkFrame):
                                          command=self.controller.show_home_page)
         self.home_button.pack(side=ctk.LEFT, padx=5)
 
-        self.explore_button = ctk.CTkButton(self.button_frame, text="Explore Country Data",
+        self.explore_button = ctk.CTkButton(self.button_frame, text="Explore Country's Data",
                                             font=("Arial", 20),
                                             corner_radius=20,
                                             fg_color="#4158D0",
