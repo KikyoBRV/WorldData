@@ -47,6 +47,9 @@ class HomeView(ctk.CTkFrame):
         GitHubImage_path = "Picture_Used/GitHub_Icon.png"
         self.GitHub_image = Image.open(GitHubImage_path)
 
+        YouTubeImage_path = "Picture_Used/Youtube_Icon.png"
+        self.YouTube_image = Image.open(YouTubeImage_path)
+
         # Convert the image to PhotoImage format
         self.Description_photo = ImageTk.PhotoImage(self.Description_Image)
 
@@ -61,6 +64,7 @@ class HomeView(ctk.CTkFrame):
         self.info_frame.pack(pady=10, padx=20)
 
         github_link = "https://github.com/KikyoBRV/WorldData"
+        youtube_link = "https://youtu.be/dQw4w9WgXcQ?si=rG0YOF-toERYo2aV"
         self.github_button = ctk.CTkButton(self.info_frame,
                                            text="Click here to visit our GitHub repository",
                                            image=ctk.CTkImage((self.GitHub_image)),
@@ -70,4 +74,15 @@ class HomeView(ctk.CTkFrame):
                                            hover_color="#C850C0",
                                            border_color="#FFCC70",
                                            command=lambda: self.controller.open_link(github_link))
-        self.github_button.pack(pady=5)
+        self.github_button.pack(padx=10, pady=5, side="left")
+
+        self.youtube_button = ctk.CTkButton(self.info_frame,
+                                           text="Click here to watch app demonstration",
+                                           image=ctk.CTkImage((self.YouTube_image)),
+                                           font=("Arial", 15),
+                                           corner_radius=20,
+                                           fg_color="#4158D0",
+                                           hover_color="#C850C0",
+                                           border_color="#FFCC70",
+                                           command=lambda: self.controller.open_link(youtube_link))
+        self.youtube_button.pack(padx=10, pady=5, side="right")

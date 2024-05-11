@@ -55,7 +55,7 @@ class DescriptiveStatisticsView(ctk.CTkFrame):
         self.attribute_label.pack()
 
         self.attribute_var = ctk.StringVar()
-        self.attribute_dropdown = ctk.CTkOptionMenu(self.middle_frame, variable=self.attribute_var, values=self.get_numeric_attributes(), command=self.update_bar_chart)
+        self.attribute_dropdown = ctk.CTkOptionMenu(self.middle_frame, variable=self.attribute_var, values=self.get_numeric_attributes(), command=self.update_descriptive_statistics)
         self.attribute_dropdown.pack(pady=10)
 
         self.bottom_frame = ctk.CTkFrame(self)
@@ -98,7 +98,7 @@ class DescriptiveStatisticsView(ctk.CTkFrame):
 
         self.data_label.configure(text=statistics)
 
-    def update_bar_chart(self, *args):
+    def update_descriptive_statistics(self, *args):
         self.show_descriptive_statistics()
 
     def exit_application(self):
