@@ -27,7 +27,7 @@ cd WorldData
 ```
 py -m virtualenv env
 ```
-4Activate the virtual environment
+4. Activate the virtual environment
 ```
 # On Linux or MacOS
 source env/bin/activate
