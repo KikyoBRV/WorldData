@@ -8,8 +8,12 @@ This project using [Global Country Information Dataset 2023](https://www.kaggle.
 ## Running the Application
 ### Requirements
 The program needs to be run with the following packages installed (that are in requirements.txt):
-* matplotlib >=3.8.4, < 4.0
-* pandas >=2.2.2, < 2.3
+
+* customtkinter==5.2.2
+* matplotlib==3.8.4
+* pandas==2.2.2
+* pillow==10.3.0
+* numpy==1.26.4
 ### How to run the program
 1. Clone the repository
 ```
@@ -21,5 +25,5 @@ python main.py
 ```
 
 ## Functions currently available
-* User can create "Bar Chart" in "Statistic Data" page. 
+* User can use all function in "Statistic Data" page. 
 * Other feature will be updated as soon as possible
