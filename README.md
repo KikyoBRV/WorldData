@@ -1,9 +1,22 @@
 # WorldData
   WorldData is a Python-based app with a GUI interface. This app provides general data on 195 countries worldwide, allowing users to view statistics on various attributes through visualization, including various types of graphs.
+Here's some GUI in this application, see more in Wiki.
+![home_page](Picture_Used/WorldData_01.png)
+![stats_page](Picture_Used/WorldData_02.png)
+![barchart_page](Picture_Used/WorldData_04.png)
+![explore_page](Picture_Used/WorldData_03.png)
 
 ## Data Source
 This project using [Global Country Information Dataset 2023](https://www.kaggle.com/datasets/nelgiriyewithana/countries-of-the-world-2023/data) as a data source.
 (This data has some errors, such as errors in country names, but I have already fixed them. Additionally, I have added the region of each country to the data.)
+
+## Graph Algorithm
+In the graph modeling section, my aim is to enable users to find the shortest path between the capital cities of countries they have selected. This graph allows users to set the maximum distance between country thresholds, the system provides the flexibility to adjust the level of connectivity in the graph. This enables users to explore different scenarios and find the most optimal routes based on their specific requirements.
+[Here](https://docs.google.com/document/d/1VWeGzTTCVUpvB0t_nb6r9zAssKcxtrMT3xJ0vG9MQrc/edit?usp=sharing) is the document that explain the algorithm in detail.
+
+## Design
+![UML_Diagram](Picture_Used/WorldData_UML_Class_Diagram.png)
+This project use MVC design pattern.
 
 ## Running the Application
 ### Requirements
@@ -50,5 +63,6 @@ python main.py
 ```
 
 ## Functions currently available
-* User can use all function in "Statistic Data" page. 
-* Other feature will be updated as soon as possible
+- Search Functionality: Allow the user to select the country they are interested in.
+- Data Display: Display the general data of the country selected by the user.
+- Graph Plotting: Users can select the type of graph and attribute they want the application to display.
