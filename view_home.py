@@ -64,7 +64,7 @@ class HomeView(ctk.CTkFrame):
         self.info_frame.pack(pady=10, padx=20)
 
         github_link = "https://github.com/KikyoBRV/WorldData"
-        youtube_link = "https://youtu.be/hTfsCSVnyas"
+        youtube_link = "https://www.youtube.com/watch?v=hTfsCSVnyas"
         self.github_button = ctk.CTkButton(self.info_frame,
                                            text="Click here to visit our GitHub repository",
                                            image=ctk.CTkImage((self.GitHub_image)),
