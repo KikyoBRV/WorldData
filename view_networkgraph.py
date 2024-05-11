@@ -55,14 +55,14 @@ class NetworkGraphView(ctk.CTkFrame):
         self.big_middle_frame1.pack(pady=20, padx=10, fill="both", expand=True)
 
         self.middle_frame_left = ctk.CTkScrollableFrame(self.big_middle_frame1)
-        self.middle_frame_left.pack(side="left", pady=20, padx=0, fill="both", expand=True)
+        self.middle_frame_left.pack(side="left", pady=20, padx=5, fill="both", expand=True)
 
         self.country_list = ctk.CTkLabel(self.middle_frame_left, text="", font=("Arial", 18), text_color="#006C89")
         self.country_list.pack(pady=20)
         self.country_list.configure(text="List of countries:\n" + "\n".join(self.get_country_names()))
 
         self.middle_frame_right = ctk.CTkFrame(self.big_middle_frame1)
-        self.middle_frame_right.pack(side="right", pady=20, padx=0, fill="both", expand=True)
+        self.middle_frame_right.pack(side="right", pady=20, padx=5, fill="both", expand=True)
 
         self.start_country_label = ctk.CTkLabel(self.middle_frame_right, text="Start Country:", font=("Arial", 22), text_color="#006C89")
         self.start_country_label.grid(row=0, column=0, padx=10, pady=20)
@@ -80,6 +80,25 @@ class NetworkGraphView(ctk.CTkFrame):
         self.max_distance_label.grid(row=0, column=2, padx=10, pady=20)
         self.max_distance_entry = ctk.CTkEntry(self.middle_frame_right, placeholder_text="Example: 2500", width=150, font=("Arial", 18))
         self.max_distance_entry.grid(row=1, column=2, padx=10, pady=20)
+
+        self.top_frame2 = ctk.CTkFrame(self)
+        self.top_frame2.pack(pady=10, padx=450, fill="both", expand=True)
+
+        self.Describe_label = ctk.CTkLabel(self.top_frame2,
+                                           text="The latitude and longitude of each country are from their capital city.",
+                                           font=("Arial", 15),
+                                           text_color="#006C89")
+        self.Describe_label.pack(pady=0)
+        self.Describe_label2 = ctk.CTkLabel(self.top_frame2,
+                                           text="The output is the shortest path from the capital of the starting country, passing",
+                                           font=("Arial", 15),
+                                           text_color="#006C89")
+        self.Describe_label2.pack(pady=0)
+        self.Describe_label3 = ctk.CTkLabel(self.top_frame2,
+                                           text="through each capital of the countries in the list until it reaches the capital of the destination country",
+                                           font=("Arial", 15),
+                                           text_color="#006C89")
+        self.Describe_label3.pack(pady=0)
 
         self.middle_frame2 = ctk.CTkScrollableFrame(self)
         self.middle_frame2.pack(pady=20, padx=100, fill="both", expand=True)
