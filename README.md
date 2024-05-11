@@ -1,6 +1,6 @@
 # WorldData
   WorldData is a Python-based app with a GUI interface. This app provides general data on 195 countries worldwide, allowing users to view statistics on various attributes through visualization, including various types of graphs.
-Here's some GUI in this application, see more in Wiki.
+Here's some GUI in this application, see more in [Wiki](https://github.com/KikyoBRV/WorldData/wiki).
 ![home_page](Picture_Used/WorldData_01.png)
 ![stats_page](Picture_Used/WorldData_02.png)
 ![barchart_page](Picture_Used/WorldData_04.png)
