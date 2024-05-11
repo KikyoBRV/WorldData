@@ -6,6 +6,7 @@ from view_piechart import PieChartView
 from view_correlation import CorrelationView
 from view_distribution import DistributionView
 from view_networkgraph import NetworkGraphView
+from view_descriptive import DescriptiveStatisticsView
 import webbrowser
 
 
@@ -53,6 +54,11 @@ class AppController:
         self.clear_window()
         self.network_view = NetworkGraphView(self, master=self.master)
         self.network_view.pack()
+
+    def show_descriptive_page(self):
+        self.clear_window()
+        self.descriptive_view = DescriptiveStatisticsView(self, master=self.master)
+        self.descriptive_view.pack()
 
 
     def clear_window(self):

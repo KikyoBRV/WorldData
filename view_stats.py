@@ -130,13 +130,13 @@ class StatsView(ctk.CTkFrame):
         # Display the image on the Canvas
         self.canvas.create_image(0, 0, anchor=ctk.NW, image=self.Pic5_photo)
 
-        self.button5 = ctk.CTkButton(self.bottom_frame, text="Descriptive",
+        self.button5 = ctk.CTkButton(self.bottom_frame, text="Descriptive Statistics",
                                      font=("Arial", 30),
                                      corner_radius=20,
                                      fg_color="#4158D0",
                                      hover_color="#C850C0",
                                      border_color="#FFCC70",
-                                     command=self.controller.show_explore_page)
+                                     command=self.controller.show_descriptive_page)
         self.button5.grid(row=3, column=1, padx=20, pady=20, sticky="nsew")
 
         # Load the image

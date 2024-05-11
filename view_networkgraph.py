@@ -68,14 +68,12 @@ class NetworkGraphView(ctk.CTkFrame):
         self.start_country_label = ctk.CTkLabel(self.middle_frame_right, text="Start Country:", font=("Arial", 22), text_color="#006C89")
         self.start_country_label.grid(row=0, column=0, padx=10, pady=20)
         self.start_country_var = ctk.StringVar()
-        # self.start_country_entry = ctk.CTkEntry(self.middle_frame_right, placeholder_text="Example: Thailand", width=250, font=("Arial", 18))
         self.start_country_entry = ctk.CTkComboBox(self.middle_frame_right, values= self.get_country_names(), variable=self.start_country_var)
         self.start_country_entry.grid(row=1, column=0, padx=10, pady=20)
 
         self.dest_country_label = ctk.CTkLabel(self.middle_frame_right, text="Destination Country:", font=("Arial", 22), text_color="#006C89")
         self.dest_country_label.grid(row=0, column=1, padx=10, pady=20)
         self.dest_country_var = ctk.StringVar()
-        # self.dest_country_entry = ctk.CTkEntry(self.middle_frame_right, placeholder_text="Example: Japan", width=250, font=("Arial", 18))
         self.dest_country_entry = ctk.CTkComboBox(self.middle_frame_right, values= self.get_country_names(), variable=self.dest_country_var)
         self.dest_country_entry.grid(row=1, column=1, padx=10, pady=20)
 
