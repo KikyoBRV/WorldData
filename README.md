@@ -31,7 +31,7 @@ source env/bin/activate
 # On MS Windows
 env\Scripts\activate
 ```
-4.Installing requirement library
+4. Installing requirement library
 ```
 pip install -r requirements.txt
 ```
