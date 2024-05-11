@@ -14,6 +14,7 @@ The program needs to be run with the following packages installed (that are in r
 * pandas==2.2.2
 * pillow==10.3.0
 * numpy==1.26.4
+* networkx==3.3
 ### How to run the program
 1. Clone the repository
 ```
