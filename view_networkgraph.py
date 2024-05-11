@@ -52,31 +52,52 @@ class NetworkGraphView(ctk.CTkFrame):
         self.label = ctk.CTkLabel(self.top_frame, text=self.page_name, font=("Arial", 50), text_color="#006C89")
         self.label.pack(pady=0)
 
-        self.middle_frame = ctk.CTkFrame(self)
-        self.middle_frame.pack(pady=20, padx=400, fill="both", expand=True)
+        self.big_middle_frame1 = ctk.CTkFrame(self)
+        self.big_middle_frame1.pack(pady=20, padx=10, fill="both", expand=True)
 
-        self.start_country_label = ctk.CTkLabel(self.middle_frame, text="Start Country:", font=("Arial", 22), text_color="#006C89")
-        self.start_country_label.pack()
+        self.middle_frame_left = ctk.CTkScrollableFrame(self.big_middle_frame1)
+        self.middle_frame_left.pack(side="left", pady=20, padx=0, fill="both", expand=True)
+
+        self.country_list = ctk.CTkLabel(self.middle_frame_left, text="", font=("Arial", 18), text_color="#006C89")
+        self.country_list.pack(pady=20)
+        self.country_list.configure(text="List of countries:\n" + "\n".join(self.get_country_names()))
+
+        self.middle_frame_right = ctk.CTkFrame(self.big_middle_frame1)
+        self.middle_frame_right.pack(side="right", pady=20, padx=0, fill="both", expand=True)
+
+        self.start_country_label = ctk.CTkLabel(self.middle_frame_right, text="Start Country:", font=("Arial", 22), text_color="#006C89")
+        self.start_country_label.grid(row=0, column=0, padx=10, pady=20)
         self.start_country_var = ctk.StringVar()
-        self.start_country_dropdown = ctk.CTkOptionMenu(self.middle_frame, variable=self.start_country_var, values=self.get_country_names())
-        self.start_country_dropdown.pack(pady=10)
+        # self.start_country_entry = ctk.CTkEntry(self.middle_frame_right, placeholder_text="Example: Thailand", width=250, font=("Arial", 18))
+        self.start_country_entry = ctk.CTkComboBox(self.middle_frame_right, values= self.get_country_names(), variable=self.start_country_var)
+        self.start_country_entry.grid(row=1, column=0, padx=10, pady=20)
 
-        self.dest_country_label = ctk.CTkLabel(self.middle_frame, text="Destination Country:", font=("Arial", 22), text_color="#006C89")
-        self.dest_country_label.pack()
+        self.dest_country_label = ctk.CTkLabel(self.middle_frame_right, text="Destination Country:", font=("Arial", 22), text_color="#006C89")
+        self.dest_country_label.grid(row=0, column=1, padx=10, pady=20)
         self.dest_country_var = ctk.StringVar()
-        self.dest_country_dropdown = ctk.CTkOptionMenu(self.middle_frame, variable=self.dest_country_var, values=self.get_country_names())
-        self.dest_country_dropdown.pack(pady=10)
+        # self.dest_country_entry = ctk.CTkEntry(self.middle_frame_right, placeholder_text="Example: Japan", width=250, font=("Arial", 18))
+        self.dest_country_entry = ctk.CTkComboBox(self.middle_frame_right, values= self.get_country_names(), variable=self.dest_country_var)
+        self.dest_country_entry.grid(row=1, column=1, padx=10, pady=20)
 
-        self.max_distance_label = ctk.CTkLabel(self.middle_frame, text="Maximum Distance:", font=("Arial", 22), text_color="#006C89")
-        self.max_distance_label.pack()
-        self.max_distance_entry = ctk.CTkEntry(self.middle_frame, font=("Arial", 18))
-        self.max_distance_entry.pack(pady=10)
+        self.max_distance_label = ctk.CTkLabel(self.middle_frame_right, text="Maximum Distance (km):", font=("Arial", 22), text_color="#006C89")
+        self.max_distance_label.grid(row=0, column=2, padx=10, pady=20)
+        self.max_distance_entry = ctk.CTkEntry(self.middle_frame_right, placeholder_text="Example: 2500", width=150, font=("Arial", 18))
+        self.max_distance_entry.grid(row=1, column=2, padx=10, pady=20)
 
-        self.distance_label = ctk.CTkLabel(self.middle_frame, text="", font=("Arial", 18), text_color="#006C89")
-        self.distance_label.pack(pady=10)
+        self.middle_frame2 = ctk.CTkScrollableFrame(self)
+        self.middle_frame2.pack(pady=20, padx=100, fill="both", expand=True)
 
-        self.country_list_label = ctk.CTkLabel(self.middle_frame, text="", font=("Arial", 18), text_color="#006C89")
-        self.country_list_label.pack(pady=10)
+        self.distance_label = ctk.CTkLabel(self.middle_frame2, text="", font=("Arial", 20), text_color="#006C89")
+        self.distance_label.pack(pady=0)
+
+        self.construction_label1 = ctk.CTkLabel(self.middle_frame2, text="", font=("Arial", 14), text_color="#B21F05")
+        self.construction_label1.pack(pady=0)
+
+        self.construction_label2 = ctk.CTkLabel(self.middle_frame2, text="", font=("Arial", 14), text_color="#B21F05")
+        self.construction_label2.pack(pady=0)
+
+        self.country_list_label = ctk.CTkLabel(self.middle_frame2, text="", font=("Arial", 18), text_color="#006C89")
+        self.country_list_label.pack(pady=20)
 
         self.bottom_frame = ctk.CTkFrame(self)
         self.bottom_frame.pack(pady=20, padx=60, fill="both", expand=True)
@@ -141,6 +162,8 @@ class NetworkGraphView(ctk.CTkFrame):
 
         # Print distance between the two countries
         self.distance_label.configure(text=f"Distance between {start_country} and {shortest_path[-1]} is {shortest_distance} km")
+        self.construction_label1.configure(text="If the distance is 'inf', it means there's no path from the starting country to the")
+        self.construction_label2.configure(text="destination country within this range of maximum distance between each country.")
 
         # Print list of countries in the shortest path
         self.country_list_label.configure(text="List of countries in the shortest path:\n" + "\n".join(shortest_path))
