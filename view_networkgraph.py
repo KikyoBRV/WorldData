@@ -81,6 +81,15 @@ class NetworkGraphView(ctk.CTkFrame):
         self.max_distance_entry = ctk.CTkEntry(self.middle_frame_right, placeholder_text="Example: 2500", width=150, font=("Arial", 18))
         self.max_distance_entry.grid(row=1, column=2, padx=10, pady=20)
 
+        self.draw_button = ctk.CTkButton(self.middle_frame_right, text="Draw Graph",
+                                         font=("Arial", 20),
+                                         corner_radius=20,
+                                         fg_color="#4158D0",
+                                         hover_color="#C850C0",
+                                         border_color="#FFCC70",
+                                         command=self.draw_graph)
+        self.draw_button.grid(row=1, column=3, padx=10, pady=20)
+
         self.top_frame2 = ctk.CTkFrame(self)
         self.top_frame2.pack(pady=10, padx=450, fill="both", expand=True)
 
@@ -114,18 +123,6 @@ class NetworkGraphView(ctk.CTkFrame):
 
         self.country_list_label = ctk.CTkLabel(self.middle_frame2, text="", font=("Arial", 18), text_color="#006C89")
         self.country_list_label.pack(pady=20)
-
-        self.bottom_frame = ctk.CTkFrame(self)
-        self.bottom_frame.pack(pady=20, padx=60, fill="both", expand=True)
-
-        self.draw_button = ctk.CTkButton(self.bottom_frame, text="Draw Graph",
-                                         font=("Arial", 20),
-                                         corner_radius=20,
-                                         fg_color="#4158D0",
-                                         hover_color="#C850C0",
-                                         border_color="#FFCC70",
-                                         command=self.draw_graph)
-        self.draw_button.pack(pady=10)
 
         self.canvas = None
 
