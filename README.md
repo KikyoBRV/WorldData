@@ -23,7 +23,11 @@ git clone https://github.com/KikyoBRV/WorldData.git
 ```
 cd WorldData
 ```
-3. Activate the virtual environment
+3. Create virtual environment
+```
+py -m virtualenv env
+```
+4Activate the virtual environment
 ```
 # On Linux or MacOS
 source env/bin/activate
@@ -31,13 +35,9 @@ source env/bin/activate
 # On MS Windows
 env\Scripts\activate
 ```
-4. Installing requirement library
+5. Installing requirement library
 ```
 pip install -r requirements.txt
-```
-5. Change your directory to main
-```
-cd main.py
 ```
 6. Run the application
 ```
