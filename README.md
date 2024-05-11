@@ -19,8 +19,32 @@ The program needs to be run with the following packages installed (that are in r
 ```
 git clone https://github.com/KikyoBRV/WorldData.git
 ```
-2. Run main.py
+2. Change your directory to WorldData
 ```
+cd WorldData
+```
+3. Activate the virtual environment
+```
+# On Linux or MacOS
+source env/bin/activate
+
+# On MS Windows
+env\Scripts\activate
+```
+4.Installing requirement library
+```
+pip install -r requirements.txt
+```
+5. Change your directory to main
+```
+cd main.py
+```
+6. Run the application
+```
+# On MacOS
+python3 main.py
+
+# On MS Windows
 python main.py
 ```
 
