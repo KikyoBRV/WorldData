@@ -16,7 +16,6 @@ In the graph modeling section, my aim is to enable users to find the shortest pa
 
 ## Design
 ![UML_Diagram](Picture_Used/WorldData_UML_Class_Diagram.png)
-This project use MVC design pattern.
 
 ## Running the Application
 ### Requirements
